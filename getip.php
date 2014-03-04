@@ -5,7 +5,11 @@
  * @return unknown
  */
 echo("hello world");
+<<<<<<< HEAD
 echo("hello world test");
+=======
+print("welcome");
+>>>>>>> b054c96837db72ee541d67387cd047b08db4fa1c
 function GetIP() {
     if (! empty( $_SERVER ["HTTP_CLIENT_IP"] ))
         $cip = $_SERVER ["HTTP_CLIENT_IP"];
