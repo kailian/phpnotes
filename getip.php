@@ -5,6 +5,7 @@
  * @return unknown
  */
 echo("hello world");
+print("welcome");
 function GetIP() {
     if (! empty( $_SERVER ["HTTP_CLIENT_IP"] ))
         $cip = $_SERVER ["HTTP_CLIENT_IP"];
