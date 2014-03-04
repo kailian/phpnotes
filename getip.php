@@ -5,7 +5,6 @@
  * @return unknown
  */
 echo("hello world");
-print("welcome");
 echo("hello world test");
 function GetIP() {
     if (! empty( $_SERVER ["HTTP_CLIENT_IP"] ))
