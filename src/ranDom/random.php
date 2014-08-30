@@ -29,6 +29,23 @@ function create_str1( $length = 8 ) {
        $str .= $chars[ mt_rand(0, strlen($chars) - 1) ];    
     }    
     return $str;    
+}
+
+/**
+ * 生成随机数
+ * @param int length 随机数长度 
+ * @return string 生成的随机码
+ */
+function get_random_code($length)
+{
+  srand((double)microtime() * 1000000);//create a random number feed.
+  $ychar = "0,1,2,3,4,5,6,7,8,9";
+  $list = explode(",",$ychar);
+  for( $i = 0; $i < $length; $i++ ) {
+    $randnum=rand(0,9); // 10+26;
+    $random_code .= $list[$randnum];
+  }
+  return $random_code;
 }    
 
 echo create_str1(9);
