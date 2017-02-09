@@ -8,10 +8,10 @@
  * @param  string $str_length 长度
  * @return string $randstr    随机数
  */
-function create_str($str_length = ''){    
+function create_str($str_length = '') {    
    $randpwd = ''; 
    $randstr = '';   
-   for($i = 0; $i < $str_length; $i++){    
+   for($i = 0; $i < $str_length; $i++) {    
      $randstr .= chr(mt_rand(65,90));    
    }    
    return $randstr;   
@@ -36,16 +36,33 @@ function create_str1( $length = 8 ) {
  * @param int length 随机数长度 
  * @return string 生成的随机码
  */
-function get_random_code($length)
-{
-  srand((double)microtime() * 1000000);//create a random number feed.
-  $ychar = "0,1,2,3,4,5,6,7,8,9";
-  $list = explode(",",$ychar);
-  for( $i = 0; $i < $length; $i++ ) {
-    $randnum=rand(0,9); // 10+26;
-    $random_code .= $list[$randnum];
-  }
-  return $random_code;
+function get_random_code($length) {
+    srand((double)microtime() * 1000000);//create a random number feed.
+    $ychar = "0,1,2,3,4,5,6,7,8,9";
+    $list = explode(",",$ychar);
+    for( $i = 0; $i < $length; $i++ ) {
+        $randnum=rand(0,9); // 10+26;
+        $random_code .= $list[$randnum];
+    }
+    return $random_code;
 }    
 
 echo create_str1(9);
+
+/**
+ * 生成随机数
+ * http://php.net/manual/zh/function.str-shuffle.php
+ */
+function random_num($chars = 6) {
+    $letters = 'abcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    return substr(str_shuffle($letters), 0, $chars);
+}
+
+function generatePasswd($numAlpha=6, $numNonAlpha=2) {
+    $listAlpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $listNonAlpha = ',;:!?.$/*-+&@_+;./*&?$-!,';
+    return str_shuffle(
+        substr(str_shuffle($listAlpha),0,$numAlpha) .
+        substr(str_shuffle($listNonAlpha),0,$numNonAlpha)
+    );
+}
